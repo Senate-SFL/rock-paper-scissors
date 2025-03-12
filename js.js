@@ -4,26 +4,26 @@ let computerScore = 0;
 function getComputerChoice() {
     let random = Math.floor(Math.random() * 3);
     if(random == 0) {
-        return "Rock";
+        return "rock";
     } else if(random == 1) {
-        return "Paper";
+        return "paper";
     } else {
-        return "Scissors";
+        return "scissors";
     };
 };
 
+let rpsArray = ['rock', 'paper', 'scissors'];
+
 function getHumanChoice() {
     let choice = prompt("Rock, paper, or scissors?: ");
-    if(choice == "rock") {
-        return "rock";
-    } else if(choice == "paper") {
-        return "paper";
-    } else if(choice == "scissors") {
-        return "scissors";
+    if (rpsArray.includes(choice.toLowerCase())) {
+        return choice;
     } else {
-        console.log("Invalid input, Enter: rock, paper, or scissors"); 
+        console.log("Invalid choice. Please enter: rock, paper, or scissors");
+        getHumanChoice();
     }
 }
+
 
 function playRound(humanChoice, computerChoice) {
     if ((humanChoice === 'rock' && computerChoice === 'scissors') || 
@@ -41,8 +41,8 @@ let round = 0;
 
 function playGame() {
     for(let i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice().toLowerCase();
-        let computerSelection = getComputerChoice().toLowerCase();
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         console.log(`Human: ${humanSelection}`);
         console.log(`Computer: ${computerSelection}`);
@@ -52,5 +52,8 @@ function playGame() {
         console.log(`Computer score: ${computerScore}`);
     }
 }
+
+//Invalid inputs are still being considered part of 
+//the round and disrupts the game round amount
 
 playGame();
