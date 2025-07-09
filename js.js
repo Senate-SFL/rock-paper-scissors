@@ -51,6 +51,13 @@ function playGame() {
         console.log(`Human score: ${humanScore}`);
         console.log(`Computer score: ${computerScore}`);
     }
+    if (humanScore === computerScore) {
+        alert('Tie!');
+    } else if (humanScore > computerScore) {
+        alert('Player Wins!');
+    } else {
+        alert('Computer Wins!');
+    }
 }
 
 //Invalid inputs are still being considered part of 
