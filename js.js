@@ -63,12 +63,4 @@ function playGame() {
 //Invalid inputs are still being considered part of 
 //the round and disrupts the game round amount
 
-if (humanScore === computerScore) {
-    alert("It's a TIE!")
-} else if (humanScore > computerScore) {
-    alert("Player Wins!");
-} else {
-    alert("Computer Wins!");
-}
-
 playGame();
